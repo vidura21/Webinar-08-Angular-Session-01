@@ -1,0 +1,26 @@
+<div class="blog-card">
+  <h5 class="blog-title">
+    {{ blog.title }}
+  </h5>
+  <span> {{ blog.date | date }} </span>
+  <div class="blog-cover-image">
+    <img src="{{ blog.imgUrl }}" alt="blog-img" />
+  </div>
+  <p class="blog-desc">
+    {{ blog.description }}
+  </p>
+  <div class="row blog-desc">
+    <div class="col-sm">
+      <button type="button" (click)="deleteEvent.emit(blog.id)" class="btn btn-outline-dark">
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="rating col-sm">
+      <span [ngClass]="{'highLight' : blog.rate >= 5}" (click)="ratePost(5)">☆</span>
+      <span [ngClass]="{'highLight' : blog.rate >= 4}" (click)="ratePost(4)">☆</span>
+      <span [ngClass]="{'highLight' : blog.rate >= 3}" (click)="ratePost(3)">☆</span>
+      <span [ngClass]="{'highLight' : blog.rate >= 2}" (click)="ratePost(2)">☆</span>
+      <span [ngClass]="{'highLight' : blog.rate >= 1}" (click)="ratePost(1)">☆</span>
+    </div>
+  </div>
+</div>
